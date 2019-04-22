@@ -11,3 +11,8 @@ body{
     text-align:center;
 }
 
+.jumbotron{
+    padding:5px;
+    padding-bottom:15px;
+    margin: 30px;
+}

@@ -53,6 +53,7 @@ var bookBud;
 var bookBudPhoto;
 var totalDifference = 0
 
+//Working draft.  The logic is not vetted to this point.
 function bookBudSelector() {
     var currentDifference = 0;
     for (var i = 0; i < bookBuds.length; i++) {
