@@ -156,7 +156,7 @@
         <br>
         <br>
 
-        <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"><i class="fa fa-check-circle"
+        <button type="button" class="btn btn-primary btn-lg btn-block" id="submit"><i class="fa fa-check-circle"
                 aria-hidden="true"></i>Submit</button>
 
         <hr>
@@ -227,18 +227,15 @@
                     ],
                     favorite_book: $("#favBook").val()
                 };
-
                 $.post("/api/friends", userData, function (data) {
-
-                    $("#match-name").text(data.name);
-                    $("#match-img").attr("src", data.photo);
+                    $("#match-name").text(bookBud.name);
+                    $("#match-img").attr("src", bookBud.photo);
                 });
-                $("results-modal").modal("show");
+                $("#results-modal").modal("show");
             } else {
                 alert("To ensure an accurate match, please answer all questions.");
             }
         });
-
 
     </script>
 

@@ -49,24 +49,4 @@ var bookBuds = [
     },
 ]
 
-var bookBud;
-var bookBudPhoto;
-var totalDifference = 100;
-
-//Working draft.  The logic is not vetted to this point.
-function bookBudSelector() {
-    var currentDifference = 0;
-    for (var i = 0; i < bookBuds.length; i++) {
-        for (var j = 0; j < bookBuds[i].scores.length; j++) {
-            currentDifference = currentDifference + Math.abs((userData[i].scores[j] - bookBuds[i].scores[j]));
-        }
-
-        if (currentDifference < totalDifference) {
-            bookBud = bookBuds[i].name;
-            bookBudPhoto = bookBuds[i].photo;
-        }
-    }
-    console.log("BookBud is: " + bookBud + " .");
-}
-
-module.exports = {bookBuds, bookBudSelector, bookBud, bookBudPhoto}
+exports.module = bookBuds;
