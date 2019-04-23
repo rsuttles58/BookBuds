@@ -178,7 +178,9 @@
                 </div>
                 <div class="modal-body">
                     <h2 id="match-name"></h2>
-                    <img id="match-img" src="" alt="">
+                    <h2 id="match-favBook"></h2>
+                    <img id="match-img" src="" alt="" style="height:330px; width:330px;">
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -229,6 +231,7 @@
                 };
                 $.post("/api/friends", userData, function (data) {
                     $("#match-name").text(data.name);
+                    $("#match-favBook").text(data.name + "'s favorite book is: " + data.favorite_book);
                     $("#match-img").attr("src", data.photo);
                 });
                 $("#results-modal").modal("show");
