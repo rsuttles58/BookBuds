@@ -12,6 +12,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
+    <style>
+        body {
+            background-color: lightgrey;
+        }
+    </style>
 
 </head>
 
@@ -184,54 +189,30 @@
     </div>
 
     <script type="text/javascript">
-    const friends = require()
-        var config = {
-            ".chosen-select": {},
-            ".chosen-select-deselect": {
-                allow_single_deselect: true
-            },
-            ".chosen-select-no-single": {
-                disable_search_threshold: 10
-            },
-            ".chosen-select-no-results": {
-                no_results_text: "Oops, nothing found!"
-            },
-            ".chosen-select-width": {
-                width: "95%"
-            }
-        };
 
-        for (var selector in config) {
-            $(selector).chosen(config[selector]);
-        }
-
-    //----------------------------------------------//
+        //----------------------------------------------//
         $("#submit").on("click", function (event) {
             event.preventDefault();
 
-            function surveyValidate() {
-                var isValid = true;
-                $(".form-control").each(function () {
-                    if ($(this).val() === "") {
-                        isValid = false;
-                    }
-                });
+            var isValid = true;
+            $(".form-control").each(function () {
+                if ($(this).val() === "") {
+                    isValid = false;
+                }
+            });
 
-                $(".chosen-select").each(function () {
+            $(".chosen-select").each(function () {
 
-                    if ($(this).val() === "") {
-                        isValid = false;
-                    }
-                });
-                return isValid;
-            }
+                if ($(this).val() === "") {
+                    isValid = false;
+                }
+            });
 
-            surveyValidate();
 
-            if (surveyValidate()) {
+            if (isValid) {
                 var userData = {
-                    name: $("#name").val(),
-                    photo: $("#photo").val(),
+                    name: $("#name").val().trim(),
+                    photo: $("#photo").val().trim(),
                     scores: [
                         $("#q1").val(),
                         $("#q2").val(),
@@ -247,18 +228,18 @@
                     favorite_book: $("#favBook").val()
                 };
 
-                bookBud(userData);
-
                 $.post("/api/friends", userData, function (data) {
 
                     $("#match-name").text(data.name);
                     $("#match-img").attr("src", data.photo);
-                    $("#results-modal").modal("toggle");
                 });
+                $("results-modal").modal("show");
             } else {
                 alert("To ensure an accurate match, please answer all questions.");
             }
         });
+
+
     </script>
 
 </body>

@@ -51,7 +51,7 @@ var bookBuds = [
 
 var bookBud;
 var bookBudPhoto;
-var totalDifference = 0
+var totalDifference = 100;
 
 //Working draft.  The logic is not vetted to this point.
 function bookBudSelector() {
@@ -68,4 +68,5 @@ function bookBudSelector() {
     }
     console.log("BookBud is: " + bookBud + " .");
 }
-module.exports = bookBuds, bookBudSelector, bookBud, bookBudPhoto;
+
+module.exports = {bookBuds, bookBudSelector, bookBud, bookBudPhoto}
