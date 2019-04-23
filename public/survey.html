@@ -228,8 +228,8 @@
                     favorite_book: $("#favBook").val()
                 };
                 $.post("/api/friends", userData, function (data) {
-                    $("#match-name").text(bookBud.name);
-                    $("#match-img").attr("src", bookBud.photo);
+                    $("#match-name").text(data.name);
+                    $("#match-img").attr("src", data.photo);
                 });
                 $("#results-modal").modal("show");
             } else {

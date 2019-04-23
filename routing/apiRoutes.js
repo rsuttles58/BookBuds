@@ -8,36 +8,29 @@ module.exports = function (app) {
 
   app.post("/api/friends", function (req, res) {
     var userData = req.body;
-    res.json(true);
 
     var bookBud;
     var totalDifference = 100;
 
-    for(var i = 0; i < userData.scores.length; i++) {
+    for (var i = 0; i < userData.scores.length; i++) {
       userData.scores[i] = parseInt(userData.scores[i]);
     }
 
-    function bookBudSelector() {
+
+    for (var i = 0; i < friends.length; i++) {
       var currentDifference = 0;
-      console.log(userData);
-      for (var i = 0; i < friends.length; i++) {
-        for (var j = 0; j < friends[i].scores.length; j++) {
-          currentDifference = currentDifference + Math.abs((userData[i].scores[j] - friends[i].scores[j]));
-          console.log(currentDifference);
-        }
-
-        if (currentDifference < totalDifference) {
-          bookBud = friends[i];
-        }
-
-
+      for (var j = 0; j < friends[i].scores.length; j++) {
+        currentDifference = currentDifference + Math.abs(userData.scores[j] - friends[i].scores[j]);
       }
 
-      console.log("BookBud is: " + bookBud + " .");
+      if (currentDifference < totalDifference) {
+        totalDifference = currentDifference;
+        bookBud = friends[i];
+      }
     }
 
-    bookBudSelector(userData)
-    // friends.push(userData);
+    friends.push(userData);
+    console.log(bookBud);
     res.json(bookBud);
   });
 

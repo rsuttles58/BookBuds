@@ -1,4 +1,4 @@
-var bookBuds = [
+var friends = [
     {
         "name": "dean",
         "photo": "http://www.babson.edu/media/babson/site-assets/content-assets/about/academics/dean-of-the-undergraduate-school/lapp-ian.jpg",
@@ -49,4 +49,4 @@ var bookBuds = [
     },
 ]
 
-exports.module = bookBuds;
+module.exports = friends;
