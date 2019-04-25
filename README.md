@@ -7,4 +7,6 @@ BookBuds is a friend-finding application that allows book enthusiasts to find so
 ```bash
 https://sheltered-brook-97884.herokuapp.com/
 ```
+## Technical Application Specs
 
+This project utilizes javascript, express, path, ajax, and node.js to render the BookBuds website.  This project uses an MVC model approach. Routing is funnelled internally through two main HTML routes and a number of API routes for getting and posting new data.  For the purposes of this demo, data is stored in an object but could easily be transitioned to mysql or another database application for data storage.  
