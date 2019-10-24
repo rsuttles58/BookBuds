@@ -7,10 +7,13 @@
     "express": "^4.16.4",
     "path": "^0.12.7"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "cypress": "^3.5.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "cypress:open": "cypress open"
   },
   "repository": {
     "type": "git",
